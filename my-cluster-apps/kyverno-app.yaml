@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kyverno
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://kyverno.github.io/kyverno
+    chart: kyverno
+    targetRevision: 3.1.4 # A recent, stable version
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kyverno # Kyverno recommends its own namespace
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    # We also need to auto-create the namespace
+    syncOptions:
+    - CreateNamespace=true
