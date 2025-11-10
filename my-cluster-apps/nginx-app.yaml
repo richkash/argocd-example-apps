@@ -14,7 +14,7 @@ spec:
     #Custom Values
     helm:
       valueFiles:
-        - nginx-custom/values.yml
+        - https://github.com/richkash/argocd-example-apps/raw/master/nginx-custom/values.yml
 
   #Destination
   destination:
