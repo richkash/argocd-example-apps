@@ -17,7 +17,7 @@ spec:
     #Custom Values
   helm:
     valueFiles:
-      - $values/nginx-custom/values.yml
+      - $src2/nginx-custom/values.yml
 
   #Destination
   destination:
