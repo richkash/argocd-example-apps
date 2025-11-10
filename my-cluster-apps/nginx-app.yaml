@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://charts.bitnami.com/bitnami
     chart: nginx
-    targetRevision: 17.2.1
+    targetRevision: 22.3.2
   destination:
     server: https://kubernetes.default.svc
     namespace: default
