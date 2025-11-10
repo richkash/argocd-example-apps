@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-custom
+  namespace: argocd
+spec:
+  project: default
+
+  # SOURCE: This time, the source is your *own* repo and local path
+  source:
+    repoURL: https://github.com/richkash/argocd-example-apps.git # Your repo
+    targetRevision: HEAD 
+    path: nginx/custom-nginx  # <-- Path to your new chart
+
+  # DESTINATION: Deploy the pods to the 'default' namespace
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
