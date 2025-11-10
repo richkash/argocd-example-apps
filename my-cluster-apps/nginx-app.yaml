@@ -5,10 +5,18 @@ metadata:
   namespace: argocd
 spec:
   project: default
+  #Source
   source:
     repoURL: https://charts.bitnami.com/bitnami
     chart: nginx
     targetRevision: 22.3.2
+
+  #Custom Values
+  helm:
+    valueFiles:
+      - ../nginx-custom/values.yml
+
+  #Destination
   destination:
     server: https://kubernetes.default.svc
     namespace: default
