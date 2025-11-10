@@ -1,0 +1,19 @@
+# SRE-OWNED POLICY (You don't need to touch this)
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: block-loadbalancer-services
+spec:
+  validationFailureAction: Enforce
+  rules:
+  - name: validate-service-type
+    match:
+      any:
+      - resources:
+          kinds:
+          - Service
+    validate:
+      message: "Exposing services via LoadBalancer is not allowed. Please use Ingress."
+      pattern:
+        spec:
+          type: "!LoadBalancer"
