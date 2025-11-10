@@ -15,7 +15,7 @@ spec:
   # DESTINATION: Deploy to the local cluster
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: argocd
 
   # SYNC POLICY: This app MUST auto-sync
   syncPolicy:
