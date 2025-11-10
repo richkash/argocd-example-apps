@@ -8,7 +8,6 @@ metadata:
   generation: 616
   name: guestbook
   namespace: argocd
-  resourceVersion: "888900"
   uid: 2a31bf16-ee64-4e59-b93f-b3cba5cfe8c4
 spec:
   destination:
@@ -19,3 +18,7 @@ spec:
     path: guestbook
     repoURL: https://github.com/richkash/argocd-example-apps
     targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
