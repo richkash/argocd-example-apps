@@ -12,6 +12,16 @@ spec:
       - resources:
           kinds:
           - Service
+    # We must exclude critical namespaces from this rule.
+    exclude:
+      any:
+      - resources:
+          namespaces:
+          - kube-system
+          - argocd
+          - kyverno
+
+    # Error Message.
     validate:
       message: "Exposing services via LoadBalancer is not allowed. Please use Ingress."
       pattern:
