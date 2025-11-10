@@ -1,14 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  annotations:
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"creationTimestamp":"2025-11-09T02:43:38Z","generation":104,"name":"guestbook","namespace":"argocd","resourceVersion":"714552","uid":"2a31bf16-ee64-4e59-b93f-b3cba5cfe8c4"},"spec":{"destination":{"namespace":"default","server":"https://kubernetes.default.svc"},"project":"default","source":{"path":"guestbook","repoURL":"https://github.com/richkash/argocd-example-apps","targetRevision":"HEAD"},"syncPolicy":{"automated":{"prune":true,"selfHeal":true}}}}
-  creationTimestamp: "2025-11-09T02:43:38Z"
-  generation: 616
   name: guestbook
   namespace: argocd
-  uid: 2a31bf16-ee64-4e59-b93f-b3cba5cfe8c4
 spec:
   destination:
     namespace: default
