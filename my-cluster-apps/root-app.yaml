@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: root-app
+  namespace: argocd
+spec:
+  project: default
+
+  # SOURCE: This app's source is its own directory
+  source:
+    repoURL: https://github.com/richkash/argocd-example-apps.git
+    targetRevision: HEAD
+    path: my-cluster-apps  # <-- Tells Argo to watch this directory
+
+  # DESTINATION: Deploy to the local cluster
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+
+  # SYNC POLICY: This app MUST auto-sync
+  syncPolicy:
+    automated:
+      prune: true     # <-- Very important: delete apps that are removed from Git
+      selfHeal: true
