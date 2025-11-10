@@ -11,13 +11,12 @@ spec:
       chart: nginx
       targetRevision: 22.3.2
     - repoURL: https://github.com/richkash/argocd-example-apps.git
-      path: nginx-custom
       targetRevision: HEAD
 
     #Custom Values
   helm:
     valueFiles:
-      - $values/values.yml
+      - $values/nginx-custom/values.yml
 
   #Destination
   destination:
