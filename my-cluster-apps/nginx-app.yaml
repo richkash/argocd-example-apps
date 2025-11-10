@@ -11,10 +11,10 @@ spec:
     chart: nginx
     targetRevision: 22.3.2
 
-  #Custom Values
-  helm:
-    valueFiles:
-      - nginx-custom/values.yml
+    #Custom Values
+    helm:
+      valueFiles:
+        - nginx-custom/values.yml
 
   #Destination
   destination:
