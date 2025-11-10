@@ -1,0 +1,26 @@
+# This is my task, not yours.
+# File: my-cluster-apps/ingress-nginx-app.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ingress-nginx
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://kubernetes.github.io/ingress-nginx
+    chart: ingress-nginx
+    targetRevision: 4.10.1 # A recent stable version
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: ingress-nginx # It needs its own namespace
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
