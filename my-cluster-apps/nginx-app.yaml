@@ -17,7 +17,7 @@ spec:
     #Custom Values
   helm:
     valueFiles:
-      - $src2/values.yml
+      - values.yml
 
   #Destination
   destination:
