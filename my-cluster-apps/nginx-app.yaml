@@ -6,18 +6,18 @@ metadata:
 spec:
   project: default
   #Source
-  sources:
-    - repoURL: https://charts.bitnami.com/bitnami
-      chart: nginx
-      targetRevision: 22.3.2
+  source:
+    repoURL: https://charts.bitnami.com/bitnami
+    chart: nginx
+    targetRevision: 22.3.2
 #    - repoURL: https://github.com/richkash/argocd-example-apps.git
 #      path: nginx-custom
 #      targetRevision: HEAD
 
     #Custom Values
-  helm:
-    valueFiles:
-      - https://github.com/richkash/argocd-example-apps/raw/master/nginx-custom/values.yml
+    helm:
+      valueFiles:
+        - https://github.com/richkash/argocd-example-apps/raw/master/nginx-custom/values.yml
 
   #Destination
   destination:
